@@ -5,6 +5,7 @@ const resetButton = document.getElementById('reset-button');
 const cardValues = [
   'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D',
   'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'
+  
 ];
 
 let firstCard = null;
@@ -94,3 +95,4 @@ function resetGame() {
 // Initialize game
 resetButton.addEventListener('click', resetGame);
 createCards();
+
