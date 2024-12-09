@@ -1,2 +1,2 @@
-# TestyourMemory
+# TestyourMind
 Project 1 
