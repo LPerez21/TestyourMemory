@@ -9,7 +9,7 @@ const cardValues = [
   'assets/images/Linus.jpg', 'assets/images/Linus.jpg',
   'assets/images/Lucy.jpg', 'assets/images/Lucy.jpg',
   'assets/images/sally.jpg', 'assets/images/sally.jpg',
-  'assets/images/paty.jpg', 'assets/images/paty.jpg',
+  'assets/images/Franklin.jpg', 'assets/images/Franklin.jpg',
   'assets/images/Pig-Pen.jpg', 'assets/images/Pig-Pen.jpg'
 ];
 
