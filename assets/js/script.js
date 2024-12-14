@@ -1,11 +1,16 @@
 const grid = document.getElementById('grid');
 const resetButton = document.getElementById('reset-button');
 
-// Array of 16 card values (8 pairs)
+// Array of card values (8 pairs of images)
 const cardValues = [
-  'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D',
-  'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'
-  
+  'assets/images/Snoopy.jpg', 'assets/images/Snoopy.jpg',
+  'assets/images/Woodstock.jpg', 'assets/images/Woodstock.jpg',
+  'assets/images/CharlieBrown.jpg', 'assets/images/CharlieBrown.jpg',
+  'assets/images/Linus.jpg', 'assets/images/Linus.jpg',
+  'assets/images/Lucy.jpg', 'assets/images/Lucy.jpg',
+  'assets/images/sally.jpg', 'assets/images/sally.jpg',
+  'assets/images/paty.jpg', 'assets/images/paty.jpg',
+  'assets/images/Pig-Pen.jpg', 'assets/images/Pig-Pen.jpg'
 ];
 
 let firstCard = null;
@@ -13,21 +18,18 @@ let secondCard = null;
 let lockBoard = false;
 let matchedPairs = 0;
 
-// Shuffle array
+// Shuffle function
 function shuffle(array) {
-  return array.sort(() => 0.5 - Math.random());
+  return array.sort(() => Math.random() - 0.5);
 }
 
-// Create cards
+// Create cards on the grid
 function createCards() {
   const shuffledValues = shuffle(cardValues);
-
   shuffledValues.forEach(value => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.value = value;
-    card.innerText = value;
-    card.style.color = 'transparent'; // Hide the value initially
     card.addEventListener('click', handleCardClick);
     grid.appendChild(card);
   });
@@ -36,12 +38,12 @@ function createCards() {
 // Handle card click
 function handleCardClick(e) {
   if (lockBoard) return;
-  const clickedCard = e.target;
 
-  if (clickedCard === firstCard) return; // Prevent double-click
+  const clickedCard = e.target;
+  if (clickedCard === firstCard || clickedCard.classList.contains('matched')) return;
 
   clickedCard.classList.add('flipped');
-  clickedCard.style.color = ''; // Show value on flip
+  clickedCard.style.backgroundImage = `url(${clickedCard.dataset.value})`;
 
   if (!firstCard) {
     firstCard = clickedCard;
@@ -62,15 +64,15 @@ function checkMatch() {
     resetSelection();
 
     if (matchedPairs === cardValues.length / 2) {
-      alert('You win!');
+      setTimeout(() => alert('You win!'), 500);
     }
   } else {
     lockBoard = true;
     setTimeout(() => {
+      firstCard.style.backgroundImage = 'none';
+      secondCard.style.backgroundImage = 'none';
       firstCard.classList.remove('flipped');
       secondCard.classList.remove('flipped');
-      firstCard.style.color = 'transparent';
-      secondCard.style.color = 'transparent';
       resetSelection();
     }, 1000);
   }
@@ -82,7 +84,7 @@ function resetSelection() {
   lockBoard = false;
 }
 
-// Reset game
+// Reset the game
 function resetGame() {
   grid.innerHTML = '';
   firstCard = null;

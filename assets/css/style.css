@@ -1,53 +1,51 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f8f9fa;
-  }
-  
-  .game-container {
-    text-align: center;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .card {
-    width: 100px;
-    height: 100px;
-    background-color: #536a39;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: rgb(13, 13, 13);
-    font-size: 30px;
-    border-radius: 8px;
-    transform: perspective(600px) rotateY(0deg);
-    transition: transform 0.5s;
-  }
-  
-  .card.flipped {
-    background-color: #36a1a8;
-    color: #5d6147;
-    transform: perspective(600px) rotateY(360deg);
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPUcGlGKJYAgvWn1IkadKAh-PXemJKVJZ7hg&s);
-    background-size: contain;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-image: url('../images/PageBackground.jpg'); /* Adjust path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-  }
-  
-  .card.matched {
-    background-color: #85a728;
-    cursor: default;
-  }
+.game-container {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #4f3030;
+  border-radius: 8px;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: perspective(600px) rotateY(0deg);
+  transition: transform 0.5s, background-color 0.3s;
+  background-image: url('../images/card-back.jpg'); /* Adjust path */
+  display: initial;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  background-color: #28a745;
+  pointer-events: none;
+}
 
   
   
