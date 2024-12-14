@@ -1,6 +1,41 @@
 const grid = document.getElementById('grid');
 const resetButton = document.getElementById('reset-button');
 
+let totalTime = 0; // Variable to keep track of total time
+let timerInterval; // Variable to hold the timer interval
+let gameStarted = false; // Variable to check if the game has started
+
+
+
+// Function to start the game and timer
+const startGame = () => {
+  if (!gameStarted) { // Check if the game has already started
+    gameStarted = true; // Set gameStarted to true
+    totalTime = 0; // Reset the total time
+    document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
+
+
+    // Start the timer
+    timerInterval = setInterval(() => {
+        totalTime++; // Increment total time
+        document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Update timer display
+    }, 1000); // Update every second
+};
+}
+
+
+// Function to stop the timer (you can call this when the game ends)
+const stopTimer = () => {
+    clearInterval(timerInterval); // Stop the timer
+    gameStarted = false;
+    document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
+};
+
+const resetTimer = () => {
+  totalTime = 0; // Reset total time
+}
+
+
 // Array of card values (8 pairs of images)
 const cardValues = [
   'assets/images/Snoopy.jpg', 'assets/images/Snoopy.jpg',
@@ -44,7 +79,7 @@ function handleCardClick(e) {
 
   clickedCard.classList.add('flipped');
   clickedCard.style.backgroundImage = `url(${clickedCard.dataset.value})`;
-
+  startGame()
   if (!firstCard) {
     firstCard = clickedCard;
   } else {
@@ -64,7 +99,10 @@ function checkMatch() {
     resetSelection();
 
     if (matchedPairs === cardValues.length / 2) {
-      setTimeout(() => alert('You win!'), 500);
+      setTimeout(() => alert(`You win! It took you ${totalTime} seconds!`)
+      , 500);
+      stopTimer()
+
     }
   } else {
     lockBoard = true;
@@ -92,6 +130,8 @@ function resetGame() {
   lockBoard = false;
   matchedPairs = 0;
   createCards();
+  stopTimer();
+  resetTimer();
 }
 
 // Initialize game
