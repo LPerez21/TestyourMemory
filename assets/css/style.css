@@ -40,6 +40,7 @@ body {
 
 .card.flipped {
   transform: rotateY(180deg);
+
 }
 
 .card.matched {

@@ -69,8 +69,8 @@ function checkMatch() {
   } else {
     lockBoard = true;
     setTimeout(() => {
-      firstCard.style.backgroundImage = 'none';
-      secondCard.style.backgroundImage = 'none';
+      firstCard.style.backgroundImage = ''; 
+      secondCard.style.backgroundImage =  '';
       firstCard.classList.remove('flipped');
       secondCard.classList.remove('flipped');
       resetSelection();
