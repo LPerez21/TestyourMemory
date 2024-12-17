@@ -27,16 +27,21 @@ const startGame = () => {
 // Function to stop the timer (you can call this when the game ends)
 const stopTimer = () => {
     clearInterval(timerInterval); // Stop the timer
+    let timeArray = JSON.parse(localStorage.getItem('timeArray')) || []; // Get the timeArray from local storage
     gameStarted = false;
-    document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
+    // document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
     console.log(totalTime);
-    localStorage.setItem('totalTime', totalTime);
+    timeArray.push(totalTime); // Push the total time to the timeArray
+    localStorage.setItem('timeArray', JSON.stringify(timeArray)) // Push the total time to the timeArray and save it to local storage
+    
 };
 
 const resetTimer = () => {
-  totalTime = 0; // Reset total time
+  totalTime = 0;
+  clearInterval(timerInterval); // Stop the timer
+  document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
 }
-
+ 
 
 // Array of card values (8 pairs of images)
 const cardValues = [
@@ -45,7 +50,7 @@ const cardValues = [
   'assets/images/CharlieBrown.jpg', 'assets/images/CharlieBrown.jpg',
   'assets/images/Linus.jpg', 'assets/images/Linus.jpg',
   'assets/images/Lucy.jpg', 'assets/images/Lucy.jpg',
-  'assets/images/Sally.jpg', 'assets/images/Sally.jpg',
+  'assets/images/sally.jpg', 'assets/images/sally.jpg',
   'assets/images/Franklin.jpg', 'assets/images/Franklin.jpg',
   'assets/images/Pig-Pen.jpg', 'assets/images/Pig-Pen.jpg'
 ];
@@ -101,10 +106,9 @@ function checkMatch() {
     resetSelection();
 
     if (matchedPairs === cardValues.length / 2) {
-      setTimeout(() => alert(`You win! It took you ${totalTime} seconds!`)
-      , 500);
+      alert(`You win! It took you ${totalTime} seconds!`)
       stopTimer()
-
+      resetTimer()
     }
   } else {
     lockBoard = true;
@@ -132,12 +136,9 @@ function resetGame() {
   lockBoard = false;
   matchedPairs = 0;
   createCards();
-  stopTimer();
   resetTimer();
 }
 
 // Initialize game
 resetButton.addEventListener('click', resetGame);
 createCards();
-
-

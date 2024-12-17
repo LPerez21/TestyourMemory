@@ -76,8 +76,7 @@ body {
 
 }
 
-audio {
-  height: 30px;
+audio{
   position: absolute;
   bottom: 5px;
 }
