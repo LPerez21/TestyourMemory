@@ -40,6 +40,14 @@ const startGame = () => {
 
 // Function to stop the timer (you can call this when the game ends)
 const stopTimer = () => {
+    clearInterval(timerInterval); // Stop the timer
+    let timeArray = JSON.parse(localStorage.getItem('timeArray')) || []; // Get the timeArray from local storage
+    gameStarted = false;
+    // document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
+    console.log(totalTime);
+    timeArray.push(totalTime); // Push the total time to the timeArray
+    localStorage.setItem('timeArray', JSON.stringify(timeArray)) // Push the total time to the timeArray and save it to local storage
+    
   clearInterval(timerInterval); // Stop the timer
   gameStarted = false;
   document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
@@ -122,7 +130,7 @@ function checkMatch() {
   } else {
     lockBoard = true;
     setTimeout(() => {
-      firstCard.style.backgroundImage = ''; 
+      firstCard.style.backgroundImage =  '';
       secondCard.style.backgroundImage =  '';
       firstCard.classList.remove('flipped');
       secondCard.classList.remove('flipped');
