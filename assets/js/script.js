@@ -154,7 +154,7 @@ function resetGame() {
   createCards();
   stopTimer();
   resetTimer();
-
+  stopTimer();
   // Stop the music
   stopMusic();
 }
