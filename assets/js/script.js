@@ -154,7 +154,7 @@ function resetGame() {
   matchedPairs = 0;
   createCards();
   resetTimer();
-
+  stopTimer();
   // Stop the music
   stopMusic();
 }
