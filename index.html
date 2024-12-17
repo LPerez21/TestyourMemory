@@ -14,6 +14,43 @@
   </audio>
   <div class="container text-center">
     <div><img class="title img-fluid" src="assets/images/title.png" alt="Test Your Memory"></div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Rules
+     </button>
+     
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h1 class="modal-title fs-5" id="exampleModalLabel">How to Play!</h1>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+              <p>Objective: </p>
+              <ul>
+                <li>Find all matching pairs of cards in the shortest amount of time!</li>
+              </ul>
+              <p>Gameplay:</p>
+              <ul>
+                <li>Click to flip any two cards.</li>
+                <li>If the two cards match (same Peanuts character), they stay face up.</li>
+                <li>If the two cards don’t match, they are flipped back face down after a brief moment.</li>
+                <li>You must try to remember the location of cards as you flip them.</li>
+                <li>Matched cards will remain visible, helping you keep track of your progress.</li>
+                <li>Continue flipping cards until all pairs have been matched.</li>
+              </ul>
+              <p><strong>Good Luck!!</strong></p>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok I get It!</button>
+           </div>
+         </div>
+       </div>
+     </div>
+     
+
     <div class="controls">
       <div id="timer" class="badge bg-danger text-white">⏱️: 0 sec</div>
     </div>
