@@ -40,22 +40,11 @@ const startGame = () => {
 
 // Function to stop the timer (you can call this when the game ends)
 const stopTimer = () => {
-<<<<<<< HEAD
-    clearInterval(timerInterval); // Stop the timer
-    let timeArray = JSON.parse(localStorage.getItem('timeArray')) || []; // Get the timeArray from local storage
-    gameStarted = false;
-    // document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
-    console.log(totalTime);
-    timeArray.push(totalTime); // Push the total time to the timeArray
-    localStorage.setItem('timeArray', JSON.stringify(timeArray)) // Push the total time to the timeArray and save it to local storage
-    
-=======
   clearInterval(timerInterval); // Stop the timer
   gameStarted = false;
   document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
   console.log(totalTime);
   localStorage.setItem('totalTime', totalTime);
->>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
 };
 
 const resetTimer = () => {
@@ -63,10 +52,6 @@ const resetTimer = () => {
   clearInterval(timerInterval); // Stop the timer
   document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
 }
-<<<<<<< HEAD
- 
-=======
->>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
 
 // Array of card values (8 pairs of images)
 const cardValues = [
@@ -133,10 +118,6 @@ function checkMatch() {
     if (matchedPairs === cardValues.length / 2) {
       alert(`You win! It took you ${totalTime} seconds!`)
       stopTimer()
-<<<<<<< HEAD
-      resetTimer()
-=======
->>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
     }
   } else {
     lockBoard = true;
@@ -173,9 +154,4 @@ function resetGame() {
 // Initialize game
 resetButton.addEventListener('click', resetGame);
 createCards();
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
