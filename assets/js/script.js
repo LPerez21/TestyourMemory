@@ -51,7 +51,6 @@ const stopTimer = () => {
   clearInterval(timerInterval); // Stop the timer
   gameStarted = false;
   document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
-  console.log(totalTime);
   localStorage.setItem('totalTime', totalTime);
 };
 
