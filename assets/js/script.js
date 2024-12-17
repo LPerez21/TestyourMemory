@@ -5,27 +5,42 @@ let totalTime = 0; // Variable to keep track of total time
 let timerInterval; // Variable to hold the timer interval
 let gameStarted = false; // Variable to check if the game has started
 
+// Access the audio element
+const bgMusic = document.getElementById('bg-music');
 
+// Function to start the music
+const startMusic = () => {
+  bgMusic.play();
+  bgMusic.loop = true; // Loop the music
+};
 
-// Function to start the game and timer
+// Function to stop the music
+const stopMusic = () => {
+  bgMusic.pause();
+  bgMusic.currentTime = 0; // Reset to the beginning
+};
+
+// Function to start the game, timer and music
 const startGame = () => {
   if (!gameStarted) { // Check if the game has already started
     gameStarted = true; // Set gameStarted to true
     totalTime = 0; // Reset the total time
     document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
 
+    // Start the music
+    startMusic();
 
     // Start the timer
     timerInterval = setInterval(() => {
-        totalTime++; // Increment total time
-        document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Update timer display
+      totalTime++; // Increment total time
+      document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Update timer display
     }, 1000); // Update every second
-};
+  }
 }
-
 
 // Function to stop the timer (you can call this when the game ends)
 const stopTimer = () => {
+<<<<<<< HEAD
     clearInterval(timerInterval); // Stop the timer
     let timeArray = JSON.parse(localStorage.getItem('timeArray')) || []; // Get the timeArray from local storage
     gameStarted = false;
@@ -34,6 +49,13 @@ const stopTimer = () => {
     timeArray.push(totalTime); // Push the total time to the timeArray
     localStorage.setItem('timeArray', JSON.stringify(timeArray)) // Push the total time to the timeArray and save it to local storage
     
+=======
+  clearInterval(timerInterval); // Stop the timer
+  gameStarted = false;
+  document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
+  console.log(totalTime);
+  localStorage.setItem('totalTime', totalTime);
+>>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
 };
 
 const resetTimer = () => {
@@ -41,7 +63,10 @@ const resetTimer = () => {
   clearInterval(timerInterval); // Stop the timer
   document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
 }
+<<<<<<< HEAD
  
+=======
+>>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
 
 // Array of card values (8 pairs of images)
 const cardValues = [
@@ -108,7 +133,10 @@ function checkMatch() {
     if (matchedPairs === cardValues.length / 2) {
       alert(`You win! It took you ${totalTime} seconds!`)
       stopTimer()
+<<<<<<< HEAD
       resetTimer()
+=======
+>>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
     }
   } else {
     lockBoard = true;
@@ -137,8 +165,17 @@ function resetGame() {
   matchedPairs = 0;
   createCards();
   resetTimer();
+
+  // Stop the music
+  stopMusic();
 }
 
 // Initialize game
 resetButton.addEventListener('click', resetGame);
 createCards();
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 0c5dcf247032da701613349aa3ceef946043ca70
