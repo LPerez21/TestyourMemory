@@ -34,7 +34,7 @@ body {
   background-position: center;
   transform: perspective(600px) rotateY(0deg);
   transition: transform 0.5s, background-color 0.3s;
-  background-image: url('../images/back.jpg'); /* Adjust path */
+  background-image: url('../images/backk.png'); /* Adjust path */
   display: initial;
 }
 

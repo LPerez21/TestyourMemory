@@ -45,7 +45,7 @@ const cardValues = [
   'assets/images/CharlieBrown.jpg', 'assets/images/CharlieBrown.jpg',
   'assets/images/Linus.jpg', 'assets/images/Linus.jpg',
   'assets/images/Lucy.jpg', 'assets/images/Lucy.jpg',
-  'assets/images/sally.jpg', 'assets/images/sally.jpg',
+  'assets/images/Sally.jpg', 'assets/images/Sally.jpg',
   'assets/images/Franklin.jpg', 'assets/images/Franklin.jpg',
   'assets/images/Pig-Pen.jpg', 'assets/images/Pig-Pen.jpg'
 ];
