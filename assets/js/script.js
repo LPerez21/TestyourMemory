@@ -48,7 +48,9 @@ const stopTimer = () => {
 };
 
 const resetTimer = () => {
-  totalTime = 0; // Reset total time
+  totalTime = 0;
+  clearInterval(timerInterval); // Stop the timer
+  document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
 }
 
 // Array of card values (8 pairs of images)
@@ -58,7 +60,7 @@ const cardValues = [
   'assets/images/CharlieBrown.jpg', 'assets/images/CharlieBrown.jpg',
   'assets/images/Linus.jpg', 'assets/images/Linus.jpg',
   'assets/images/Lucy.jpg', 'assets/images/Lucy.jpg',
-  'assets/images/Sally.jpg', 'assets/images/Sally.jpg',
+  'assets/images/sally.jpg', 'assets/images/sally.jpg',
   'assets/images/Franklin.jpg', 'assets/images/Franklin.jpg',
   'assets/images/Pig-Pen.jpg', 'assets/images/Pig-Pen.jpg'
 ];
@@ -114,8 +116,7 @@ function checkMatch() {
     resetSelection();
 
     if (matchedPairs === cardValues.length / 2) {
-      setTimeout(() => alert(`You win! It took you ${totalTime} seconds!`)
-      , 500);
+      alert(`You win! It took you ${totalTime} seconds!`)
       stopTimer()
     }
   } else {
@@ -144,7 +145,6 @@ function resetGame() {
   lockBoard = false;
   matchedPairs = 0;
   createCards();
-  stopTimer();
   resetTimer();
 
   // Stop the music
@@ -154,6 +154,4 @@ function resetGame() {
 // Initialize game
 resetButton.addEventListener('click', resetGame);
 createCards();
-
-
 
