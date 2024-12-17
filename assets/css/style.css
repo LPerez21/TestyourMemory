@@ -34,7 +34,7 @@ body {
   background-position: center;
   transform: perspective(600px) rotateY(0deg);
   transition: transform 0.5s, background-color 0.3s;
-  background-image: url('../images/back.jpg'); /* Adjust path */
+  background-image: url('../images/backk.png'); /* Adjust path */
   display: initial;
 }
 
@@ -74,4 +74,10 @@ body {
   width: 120px;
   box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.3);
 
+}
+
+audio {
+  height: 30px;
+  position: absolute;
+  bottom: 5px;
 }
