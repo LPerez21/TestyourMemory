@@ -153,6 +153,7 @@ function resetGame() {
   lockBoard = false;
   matchedPairs = 0;
   createCards();
+  stopTimer();
   resetTimer();
 
   // Stop the music
