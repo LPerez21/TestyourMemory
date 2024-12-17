@@ -90,3 +90,12 @@ audio{
   position: absolute;
   bottom: 5px;
 }
+
+
+.modal-content {
+  text-align: left;
+}
+
+.btn-primary{
+  margin-bottom: 10px;
+}
