@@ -27,31 +27,29 @@ const startGame = () => {
     totalTime = 0; // Reset the total time
     document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
 
-        // Start the music
-        startMusic();
+    // Start the music
+    startMusic();
 
     // Start the timer
     timerInterval = setInterval(() => {
-        totalTime++; // Increment total time
-        document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Update timer display
+      totalTime++; // Increment total time
+      document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Update timer display
     }, 1000); // Update every second
-};
+  }
 }
-
 
 // Function to stop the timer (you can call this when the game ends)
 const stopTimer = () => {
-    clearInterval(timerInterval); // Stop the timer
-    gameStarted = false;
-    document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
-    console.log(totalTime);
-    localStorage.setItem('totalTime', totalTime);
+  clearInterval(timerInterval); // Stop the timer
+  gameStarted = false;
+  document.getElementById('timer').innerText = `⏱️: ${totalTime} sec`; // Reset timer display
+  console.log(totalTime);
+  localStorage.setItem('totalTime', totalTime);
 };
 
 const resetTimer = () => {
   totalTime = 0; // Reset total time
 }
-
 
 // Array of card values (8 pairs of images)
 const cardValues = [
@@ -119,7 +117,6 @@ function checkMatch() {
       setTimeout(() => alert(`You win! It took you ${totalTime} seconds!`)
       , 500);
       stopTimer()
-
     }
   } else {
     lockBoard = true;
@@ -150,12 +147,13 @@ function resetGame() {
   stopTimer();
   resetTimer();
 
-    // Stop the music
-    stopMusic();
+  // Stop the music
+  stopMusic();
 }
 
 // Initialize game
 resetButton.addEventListener('click', resetGame);
 createCards();
+
 
 
