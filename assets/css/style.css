@@ -5,7 +5,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-image: url('../images/newbackground.jpg'); /* Adjust path */
+  background-image: url('../images/background.png'); /* Adjust path */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
