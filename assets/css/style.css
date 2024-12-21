@@ -29,7 +29,7 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) {b
   .grid {
     grid-template-columns: repeat(4, 99px); /* Adjust for mobile screens */
   }
