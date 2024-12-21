@@ -25,13 +25,13 @@ body {
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(4, 80px); /* Adjust for smaller screens */
+    grid-template-columns: repeat(4, 100px); /* Adjust for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: repeat(4, 60px); /* Adjust for mobile screens */
+    grid-template-columns: repeat(4, 100px); /* Adjust for mobile screens */
   }
 }
 
